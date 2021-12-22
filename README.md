@@ -2,7 +2,7 @@
 
 This application can be used to configure some aspects of Orlaco EMOS IP Cameras.
 
-### Background
+## Background
 
 I was working on a project that required multiple rugged IP cameras and
 ended up ordering some Orlaco EMOS IP cameras. These looked ideal for the
@@ -25,33 +25,32 @@ and more info would be very welcome so that more features can be completed.
 
 Hopefully this will be useful to someone, please let me know if so!
 
-### Binaries
+## Binaries
 I've included a binary built for 64 bit Windows. Linux binaries
 are not included, but I have tested that it builds and works under Ubuntu.
 
 
-### Use
-Open a command prompt and type something like this:
-
+## Use
+Open a command prompt and type something like this to get a list of command line options:
+~~~
 occ.exe --help
+~~~
 
-This will give you a list of command line options.
+## Examples
 
-### Examples
-
-#### Discovering cameras on a network:
-
+### Discovering cameras on a network:
+~~~
 .\occ.exe -d 192.168.2.255  
 Found 2 devices  
 0: IP=192.168.2.10 Type=01 ServiceID=433f InstanceID=000a V=1.0  
 1: IP=192.168.2.11 Type=01 ServiceID=433f InstanceID=000b V=1.0  
-
-#### Read all registers on the camera with IP address 192.168.2.10
-
-.\occ.exe -R : -i 192.168.2.10
+~~~
+### Read all registers on the camera with IP address 192.168.2.10
+~~~
+.\occ.exe -R : -i 192.168.2.10  
 Read registers 0 to 64
 
-Registers
+Registers  
 Index   Address Hex     Decimal Ascii   Name  
 00      0xb00c  0x01      1             LED Mode  
 01      0xb041  0x00      0             Stream Protocol  
@@ -118,30 +117,31 @@ Index   Address Hex     Decimal Ascii   Name
 62      0xb17e  0x20     32             DHCP Hostname 13  
 63      0xb17f  0x20     32             DHCP Hostname 14  
 64      0xb180  0x20     32             DHCP Hostname 15
+~~~
 
-
-#### Read the LED Mode register
-
+### Read the LED Mode register
+~~~
 .\occ.exe -r 0 -i 192.168.2.10  
 Read register 0
   
 Registers  
 Index   Address Hex     Decimal Ascii   Name  
 00      0xb00c  0x01      1             LED Mode  
+~~~
 
+### Write the LED Mode register
 
-#### Write the LED Mode register
-
+~~~
 .\occ -w 0=0 -i 192.168.2.10  
 Write register 0 value 00  
 
 Registers  
 Index   Address Hex     Decimal Ascii   Name  
 00      0xb00c  0x00      0             LED Mode
+~~~
 
-
-#### Read all regions of interest
-
+### Read all regions of interest
+~~~
  .\occ.exe -G :   
 Read ROI's 1 to 10  
 
@@ -157,12 +157,13 @@ ROI     P1X     P1Y     P2X     P2Y     Width   Height  Mbps    Fps     Mode
 8       1280    0       0       960     640     480     50      30      1  
 9       0       960     1280    0       640     480     50      30      1  
 10      1280    960     0       0       1280    960     50      30      1  
+~~~
 
-#### Configure region of interest 10
-
+### Configure region of interest 10
+~~~
  .\occ.exe -s 10=1280,960,0,0,1280,960,60,25,2
 
 Regions Of Interest  
 ROI     P1X     P1Y     P2X     P2Y     Width   Height  Mbps    Fps     Mode  
 10      1280    960     0       0       1280    960     60      25      2  
-
+~~~
