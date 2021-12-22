@@ -142,7 +142,7 @@ Index   Address Hex     Decimal Ascii   Name
 
 ### Read all regions of interest
 ~~~
- .\occ.exe -G :   
+ .\occ.exe -G : -i 192.168.2.10
 Read ROI's 1 to 10  
 
 Regions Of Interest  
@@ -161,7 +161,7 @@ ROI     P1X     P1Y     P2X     P2Y     Width   Height  Mbps    Fps     Mode
 
 ### Configure region of interest 10
 ~~~
- .\occ.exe -s 10=1280,960,0,0,1280,960,60,25,2
+ .\occ.exe -s 10=1280,960,0,0,1280,960,60,25,2 -i 192.168.2.10
 
 Regions Of Interest  
 ROI     P1X     P1Y     P2X     P2Y     Width   Height  Mbps    Fps     Mode  
