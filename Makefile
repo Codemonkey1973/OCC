@@ -19,16 +19,17 @@
 # 
 ############################################################################
 
-TARGET=occ.exe
+TARGET_WIN=occ.exe
+TARGET_LINUX=occ
 
 CC=gcc
 
 all:
 ifeq ($(OS),Windows_NT)
-	$(CC) -o $(TARGET) main.c orlaco.c -lws2_32
+	$(CC) -o $(TARGET_WIN) main.c orlaco.c -lws2_32
 else
-	$(CC) -o $(TARGET) main.c orlaco.c
+	$(CC) -o $(TARGET_LINUX) main.c orlaco.c
 endif
 
 clean:
-	rm -rf $(TARGET)
+	rm -rf $(TARGET_WIN) $(TARGET_LINUX)
