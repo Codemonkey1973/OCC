@@ -28,6 +28,7 @@
 #include <string.h>
 #include "common.h"
 #include "orlaco.h"
+#include "sys/time.h"
 
 /****************************************************************************/
 /***        Macro Definitions                                             ***/

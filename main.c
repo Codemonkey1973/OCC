@@ -321,8 +321,8 @@ static void vParseCommandLineOptions(tsInstance *psInstance, int argc, char *arg
 
         { "verbosity",     	required_argument, 	0,  'v' },
 
-        { "help",       	required_argument,	0,  'h' },
-        { "help",          	required_argument, 	0,  '?' },
+        { "help",       	no_argument,		0,  'h' },
+        { "help",          	no_argument, 		0,  '?' },
 
 		{ NULL, 0, 0, 0 },
 	};
@@ -331,7 +331,7 @@ static void vParseCommandLineOptions(tsInstance *psInstance, int argc, char *arg
 	while(1)
 	{
 
-		c = getopt_long(argc, argv, "d:w:r:R:g:G:s:i:e:m:v:?:h:", lopts, NULL);
+		c = getopt_long(argc, argv, "d:w:r:R:g:G:s:i:e:m:v:?h", lopts, NULL);
 
 		if (c == -1)
 			break;
